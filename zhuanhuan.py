@@ -7,8 +7,8 @@ from pyrogram.types import Message
 from pagermaid.listener import listener
 from pagermaid.utils import client as http_client, alias_command
 
-backend = "https://api.gdmm.ml/"
-config = "https://paste.wmlabs.net/raw/e267bcd67c3d"
+backend = "https://api.6993300.com/"
+config = "https://paste.wmlabs.net/p/b65273b00ac3"
 
 @listener(is_plugin=True, outgoing=True, command=alias_command("zhuanhuan"),
           description='转换节点和订阅链接',

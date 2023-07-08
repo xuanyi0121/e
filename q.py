@@ -28,18 +28,19 @@ async def yv_lu(bot: Client, message: Message):
         chat_response = await conv.get_response()
         await conv.mark_as_read()
     try:
+        text_with_newlines = "生成的信息\n换行了\n可以自动换行了"  # 修改这里，将生成的信息包含换行符
         await chat_response.copy(
             message.chat.id,
-            reply_to_message_id=message.reply_to_message_id
-            or message.reply_to_top_message_id,
+            reply_to_message_id=message.reply_to_message_id or message.reply_to_top_message_id,
+            caption=text_with_newlines
         )
     except Flood as e:
         await sleep(e.value + 1)
         with contextlib.suppress(Exception):
             await chat_response.copy(
                 message.chat.id,
-                reply_to_message_id=message.reply_to_message_id
-                or message.reply_to_top_message_id,
+                reply_to_message_id=message.reply_to_message_id or message.reply_to_top_message_id,
+                caption=text_with_newlines
             )
     except Exception:
         pass

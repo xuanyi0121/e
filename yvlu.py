@@ -109,9 +109,10 @@ async def yv_lu_process_sticker(name, photo, sticker, path):
     result.save(f'{path}result.png')
 
 
-@listener(is_plugin=True, outgoing=True, command=alias_command("yvlu"),
+@listener(is_plugin=True, outgoing=True, command=alias_command("qu"),
           description="将回复的消息转换成语录")
-async def yv_lu(context):
+async def yv_lu(bot: Client, message: Message):
+    bot_username = "QuotLyBot"
     if not context.reply_to_msg_id:
         await context.edit('你需要回复一条消息。')
         return

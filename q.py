@@ -1,14 +1,11 @@
 import contextlib
-from asyncio 
-import sleep
+from asyncio import sleep
 
-from pyrogram.errors 
-import Flood
+from pyrogram.errors import Flood
 from pyrogram.errors.exceptions.bad_request_400 import ChatForwardsRestricted
 
 from pagermaid.listener import listener
-from pagermaid.enums 
-import Client, Message
+from pagermaid.enums import Client, Message
 
 
 @listener(command="q", description="将回复的消息或者输入的字符串转换成语录")
@@ -30,28 +27,20 @@ async def yv_lu(bot: Client, message: Message):
         await sleep(0.1)
         chat_response = await conv.get_response()
         await conv.mark_as_read()
-    quote_text = chat_response.text
-
-    # 每18个汉字为一行进行分割
-    quote_lines = [quote_text[i:i+18] for i in range(0, len(quote_text), 18)]
-
-    # 逐行发送语录文本
-    for line in quote_lines:
-        try:
-            await bot.send_message(
+    try:
+        await chat_response.copy(
+            message.chat.id,
+            reply_to_message_id=message.reply_to_message_id
+            or message.reply_to_top_message_id,
+        )
+    except Flood as e:
+        await sleep(e.value + 1)
+        with contextlib.suppress(Exception):
+            await chat_response.copy(
                 message.chat.id,
-                line,
-                reply_to_message_id=message.reply_to_message_id or message.reply_to_top_message_id,
+                reply_to_message_id=message.reply_to_message_id
+                or message.reply_to_top_message_id,
             )
-        except Flood as e:
-            await sleep(e.value + 1)
-            with contextlib.suppress(Exception):
-                await bot.send_message(
-                    message.chat.id,
-                    line,
-                    reply_to_message_id=message.reply_to_message_id or message.reply_to_top_message_id,
-                )
-        except Exception:
-            pass
-
+    except Exception:
+        pass
     await message.safe_delete()

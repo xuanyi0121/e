@@ -13,7 +13,7 @@ import Client, Message
 
 @listener(command="q", description="将回复的消息或者输入的字符串转换成语录")
 async def yv_lu(bot: Client, message: Message):
-    bot_username = "@QuotLyBot"
+    bot_username = "QuotLyBot"
     if message.reply_to_message:
         reply = message.reply_to_message
     elif message.parameter:

@@ -48,7 +48,7 @@ async def run_speedtest(request: AsyncClient, message: Message):
         test.results.share()
     result = test.results.dict()
     des = (
-        f"**🌈e总的专属测速服务** \n"
+        f"**🌈测速服务** \n"
         f"**测速点:** `{result['server']['name']} - "
         f"{result['server']['cc']}` \n"
         f"**服务商:** `{result['server']['sponsor']}` \n"

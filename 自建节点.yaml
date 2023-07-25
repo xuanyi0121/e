@@ -263,7 +263,7 @@ proxy-groups:
       - Sub2
       # - Sub3
     # filter使用正则表达式去筛选节点
-    filter: "HK|Hong|香港|港|急速"
+    filter: "🇭🇰|HK|Hong|香港|港|急速"
 
   - name: 台湾节点
     type: select
@@ -273,7 +273,7 @@ proxy-groups:
       - Sub2
       # - Sub3
     # filter使用正则表达式去筛选节点
-    filter: "tw|TW|台湾|台|Taiwan"
+    filter: "🇨🇳|🇹🇼|tw|TW|台湾|台|Taiwan"
 
   - name: 狮城节点
     type: select
@@ -281,7 +281,7 @@ proxy-groups:
       - Sub1
       - Sub2
       # - Sub3
-    filter: "SG|Singapore|狮城|新加坡"
+    filter: "🇸🇬|SG|Singapore|狮城|新加坡"
 
   - name: 日本节点
     type: select
@@ -289,7 +289,7 @@ proxy-groups:
       - Sub1
       - Sub2
       # - Sub3
-    filter: "JP|japan|日本"
+    filter: "🇯🇵|JP|japan|日本"
 
   - name: 美国节点
     type: select
@@ -297,7 +297,7 @@ proxy-groups:
       - Sub1
       - Sub2
       # - Sub3
-    filter: "US|United|美|美国"
+    filter: "🇺🇸|US|United|美|美国"
   
   - name: 其他地区
     type: select
@@ -306,7 +306,7 @@ proxy-groups:
       - Sub2
       # - Sub3
     # 筛选除日美新港外的节点，可自行按格式添加
-    filter: "^(?!.*(?:Hong|HK|TW|Taiwan|USA|Japan|Singapore|SG|USA|香港|日本|新加坡|狮城|台湾|美国)).*"
+    filter: "^(?!.*(?:Hong|HK|TW|Taiwan|USA|Japan|Singapore|SG|USA|🇭🇰|🇯🇵|🇸🇬|🇹🇼|🇨🇳|🇺🇸|香港|日本|新加坡|狮城|台湾|美国)).*"
 
 
 # proxy-provider 可参考meta内核文档 https://clash-meta.wiki/config/proxy-providers

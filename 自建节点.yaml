@@ -91,13 +91,6 @@ proxy-groups:
       - 日本节点
       - 美国节点
       - 其他地区
-      
- -  name: WeChat
-    type: select
-    proxies:
-      - 手动切换
-      - 香港节点
-      - 台湾节点
 
   - name: Emby
     type: select
@@ -322,11 +315,11 @@ proxy-providers:
   Sub1:
     <<: *http
     path: ./proxies/Sub1.yaml
-    url: https://6993300.eu.org/api/v1/client/subscribe?token=26671733edc29949112b93a5a7717592
+    url: 订阅链接
   Sub2:
     <<: *http
     path: ./proxies/Sub2.yaml
-    url: https://v2.esycloud.link/api/v1/client/subscribe?token=aa78779e96ed2f0b9815ed0f44b99a0c
+    url: 订阅链接
   #
   # 本地节点，路径可填写绝对路径或者相对路径(为clash工作目录下)
   # Sub3:
@@ -445,14 +438,7 @@ rule-providers:
     behavior: classical
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
     path: ./ruleset/Google.yaml
-    interval: 86400
-    
-  WeChat:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.yaml"
-    path: ./ruleset/WeChat.yaml
-    interval: 86400
+    interval: 86400  
     
   China:
     type: http
@@ -496,6 +482,5 @@ rules:
   - RULE-SET,BiliBili,哔哩哔哩
   - RULE-SET,Global,Proxy
   - RULE-SET,China,DIRECT
-  - RULE-SET,WeChat,WeChat
   - RULE-SET,Lan,DIRECT
   - MATCH,Proxy

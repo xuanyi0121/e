@@ -1,0 +1,576 @@
+# yaml锚点(不懂自行Google)勿动
+proxy-provider-http: &http
+  type: http
+  interval: 3600
+  health-check:
+    enable: false
+    url: https://1.1.1.1/generate_204
+    interval: 7200
+
+proxy-provider-file: &file
+  type: file
+  health-check:
+    enable: false
+    url: https://1.1.1.1/generate_204
+    interval: 7200
+
+# Clash配置
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+
+external-controller: 127.0.0.1:9090
+# 控制面板相对路径
+# external-ui: folder
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  default-nameserver:
+   - 223.5.5.5
+   - 119.29.29.29
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver: 
+    - 'https://doh.pub/dns-query'
+    - 'https://223.5.5.5/dns-query'
+  fallback:
+    - 'https://doh.dns.sb/dns-query'
+    - 'https://1.1.1.1/dns-query'
+    - 'tls://8.8.4.4:853'
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+# 如果有节点可按文档填写，并在group内使用
+proxies:
+  # - name: "ss1"
+  #   type: ss
+  #   server: server
+  #   port: 443
+  #   cipher: chacha20-ietf-poly1305
+  #   password: "password"
+  #   # udp: true
+
+
+proxy-groups:
+  - name: 🐟 漏网之鱼 #代理组名称，你在“代理”里看到的组的名字
+    type: select #类型：手动选择
+    # proxies引用别的组或者配置在文件内proxies的节点
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      # 如有配置proxies部分可按如下格式使用配置文件内自定义的节点(非订阅节点)
+      # - ss1
+
+  - name: 🚀 手动切换
+    type: select
+    use:
+      - Sub1
+      # 当proxy-provider配置多个订阅时，使用use下方格式引用，这里为只有一个订阅的情况
+      # - Sub2
+      # - Sub3
+    # filter使用正则表达式去筛选节点
+    # filter: "HK|Hong|香港|港|急速"
+
+  - name: 🌍 国外媒体
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 📲 Telegram
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 🎞 Emby
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      - DIRECT
+
+  - name: 🔞 TikTok
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 🎶 Shopify
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      - DIRECT
+
+  - name: 💬 Instagram
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 💬 Twitter
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 💬 Facebook
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 📹 YouTube
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 🎥 Netflix
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 🎬 Disney+
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 📺 哔哩哔哩
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      - DIRECT
+
+  - name: 🔞 巴哈姆特
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇹🇼 台湾节点
+
+  - name: 🅱 Bing
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 🤖 OpenAI
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+
+  - name: 📢 PayPal
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      - DIRECT
+
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      - DIRECT
+
+  - name: 📢 谷歌服务
+    type: select
+    proxies:
+      - 🚀 手动切换
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+      - 🇲🇴 澳门节点
+      - 🇸🇬 狮城节点
+      - 🇯🇵 日本节点
+      - 🇺🇸 美国节点
+      - 🇺🇳 其它地区
+      
+  - name: 🛡 AdBlock
+    type: select
+    proxies:
+      - DIRECT
+      - REJECT
+
+  - name: 🇭🇰 香港节点
+    type: url-test
+    use:
+      - Sub1
+      # - Sub2
+      # - Sub3
+    # filter使用正则表达式去筛选节点
+    filter: "HK|Hong|香港|港"
+
+  - name: 🇹🇼 台湾节点
+    type: url-test
+    use:
+      - Sub1
+      # - Sub2
+      # - Sub3
+    # filter使用正则表达式去筛选节点
+    filter: "tw|TW|台湾|台|Taiwan"
+
+  - name: 🇲🇴 澳门节点
+    type: url-test
+    use:
+      - Sub1
+      # - Sub2
+      # - Sub3
+    # filter使用正则表达式去筛选节点
+    filter: "MO|澳门|澳門|Macao"
+
+  - name: 🇸🇬 狮城节点
+    type: url-test
+    use:
+      - Sub1
+      # - Sub2
+      # - Sub3
+    filter: "SG|Singapore|狮城|新加坡"
+
+  - name: 🇯🇵 日本节点
+    type: url-test
+    use:
+      - Sub1
+      # - Sub2
+      # - Sub3
+    filter: "JP|japan|日本"
+
+  - name: 🇺🇸 美国节点
+    type: url-test
+    use:
+      - Sub1
+      # - Sub2
+      # - Sub3
+    filter: "US|United|美|美国"
+  
+  - name: 🇺🇳 其它地区
+    type: select
+    use:
+      - Sub1
+      # - Sub2
+      # - Sub3
+    # 筛选除日美新港外的节点，可自行按格式添加
+    filter: "^(?!.*(?:Hong|HK|TW|Taiwan|USA|Japan|Singapore|USA|香港|日本|狮城|新加坡|台湾|美国)).*"
+
+
+# proxy-provider 可参考meta内核文档 https://clash-meta.wiki/config/proxy-providers
+proxy-providers:
+  # 在线订阅,有多个机场按格式书写在下面
+  Sub1:
+    <<: *http
+    path: ./proxies/Sub1.yaml
+    url: https://tagcdnsub.work/api/v1/client/subscribe?token=87e772c0170532d135e6bdad677fac4d
+
+  # Sub2:
+  #   <<: *http
+  #   path: ./proxies/Sub2.yaml
+  #   url: 订阅链接
+  #
+  # 本地节点，路径可填写绝对路径或者相对路径(为clash工作目录下)
+  # Sub3:
+  #   <<: *file
+  #   path: ./proxies/Sub3.yaml
+
+# 可参考meta核文档 https://clash-meta.wiki/config/rules/rule-provider
+rule-providers:
+  Adblock-Domain:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
+    path: ./ruleset/AdDomain.yaml
+    interval: 86400
+
+  Bahamut:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.yaml"
+    path: ./ruleset/Bahamut.yaml
+    interval: 86400
+
+  Emby:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Emby/Emby.yaml"
+    path: ./ruleset/Emby.yaml
+    interval: 86400
+
+  Shopify:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Shopify/Shopify.yaml"
+    path: ./ruleset/Shopify.yaml
+    interval: 86400
+
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
+    path: ./ruleset/TikTok.yaml
+    interval: 86400
+
+  Telegram:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
+    path: ./ruleset/Telegram.yaml
+    interval: 86400
+
+  Twitter:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
+    path: ./ruleset/Twitter.yaml
+    interval: 86400
+
+  Instagram:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml"
+    path: ./ruleset/Instagram.yaml
+    interval: 86400
+
+  Facebook:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml"
+    path: ./ruleset/Facebook.yaml
+    interval: 86400
+
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./ruleset/YouTube.yaml
+    interval: 86400
+
+  Netflix:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml"
+    path: ./ruleset/Netflix.yaml
+    interval: 86400
+
+  Disney:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml"
+    path: ./ruleset/Disney.yaml
+    interval: 86400
+
+  BiliBili:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml"
+    path: ./ruleset/BiliBili.yaml
+    interval: 86400
+
+  Bing:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml"
+    path: ./ruleset/Bing.yaml
+    interval: 86400
+
+  OpenAI:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml"
+    path: ./ruleset/OpenAI.yaml
+    interval: 86400
+
+  PayPal:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.yaml"
+    path: ./ruleset/PayPal.yaml
+    interval: 86400
+
+  Apple:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/Apple/Apple.yaml"
+    path: ./ruleset/Apple.yaml
+    interval: 86400
+
+  Microsoft:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml"
+    path: ./ruleset/Microsoft.yaml
+    interval: 86400
+  
+  Google:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
+    path: ./ruleset/Google.yaml
+    interval: 86400
+
+  China:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.yaml"
+    path: ./ruleset/China.yaml
+    interval: 86400
+
+  Global:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  Lan:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
+    path: ./ruleset/Lan.yaml
+    interval: 86400
+
+# 规则部分建议域名规则在前，ip规则在后
+# ip规则尽量使用no-resolve，减少需要走代理的域名在本地解析的情况
+rules:
+  - RULE-SET,Adblock-Domain,🛡 AdBlock
+  - RULE-SET,Emby,🎞 Emby
+  - RULE-SET,Bahamut,🔞 巴哈姆特
+  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,Twitter,💬 Twitter
+  - RULE-SET,Instagram,💬 Instagram
+  - RULE-SET,Facebook,💬 Facebook
+  - RULE-SET,TikTok,🔞 TikTok
+  - RULE-SET,Shopify,🎶 Shopify
+  - RULE-SET,YouTube,📹 YouTube
+  - RULE-SET,Netflix,🎥 Netflix
+  - RULE-SET,Disney,🎬 Disney+
+  - RULE-SET,OpenAI,🤖 OpenAI
+  - RULE-SET,Bing,🅱 Bing
+  - RULE-SET,PayPal,📢 PayPal
+  - RULE-SET,Apple,🍎 苹果服务
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Google,📢 谷歌服务
+  - RULE-SET,BiliBili,📺 哔哩哔哩
+  - RULE-SET,Global,🌍 国外媒体
+  - RULE-SET,China,DIRECT
+  - RULE-SET,Lan,DIRECT
+  - MATCH,🐟 漏网之鱼

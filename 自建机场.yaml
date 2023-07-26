@@ -57,7 +57,7 @@ proxies:
 
 
 proxy-groups:
-  - name: 🐟 漏网之鱼 #代理组名称，你在“代理”里看到的组的名字
+  - name:  #代理组名称，你在“代理”里看到的组的名字
     type: select #类型：手动选择
     # proxies引用别的组或者配置在文件内proxies的节点
     proxies:
@@ -363,12 +363,12 @@ proxy-providers:
   Sub1:
     <<: *http
     path: ./proxies/Sub1.yaml
-    url: https://6993300.eu.org/api/v1/client/subscribe?token=26671733edc29949112b93a5a7717592
+    url: 订阅链接
 
   Sub2:
     <<: *http
     path: ./proxies/Sub2.yaml
-    url: https://v2.esycloud.link/api/v1/client/subscribe?token=aa78779e96ed2f0b9815ed0f44b99a0c
+    url: 订阅链接
   #
   # 本地节点，路径可填写绝对路径或者相对路径(为clash工作目录下)
   # Sub3:

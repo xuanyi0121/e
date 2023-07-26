@@ -77,10 +77,10 @@ proxy-groups:
     use:
       - Sub1
       # 当proxy-provider配置多个订阅时，使用use下方格式引用，这里为只有一个订阅的情况
-      # - Sub2
+      - Sub2
       # - Sub3
     # filter使用正则表达式去筛选节点
-    # filter: "HK|Hong|香港|港|急速"
+    # filter: "🇭🇰|HK|Hong|香港|港|急速"
 
   - name: 🌍 国外媒体
     type: select
@@ -88,7 +88,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -100,7 +99,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -112,7 +110,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -124,7 +121,6 @@ proxy-groups:
     proxies:
       - 🚀 手动切换
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -136,7 +132,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -149,7 +144,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -161,7 +155,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -173,7 +166,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -185,7 +177,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -197,7 +188,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -209,7 +199,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -240,7 +229,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -251,7 +239,6 @@ proxy-groups:
     proxies:
       - 🚀 手动切换
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -263,7 +250,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -275,7 +261,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -288,7 +273,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -301,7 +285,6 @@ proxy-groups:
       - 🚀 手动切换
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
-      - 🇲🇴 澳门节点
       - 🇸🇬 狮城节点
       - 🇯🇵 日本节点
       - 🇺🇸 美国节点
@@ -317,28 +300,28 @@ proxy-groups:
     type: url-test
     use:
       - Sub1
-      # - Sub2
+      - Sub2
       # - Sub3
     # filter使用正则表达式去筛选节点
-    filter: "HK|Hong|香港|港"
+    filter: "🇭🇰|HK|Hong|香港|港"
 
   - name: 🇹🇼 台湾节点
     type: url-test
     use:
       - Sub1
-      # - Sub2
+      - Sub2
       # - Sub3
     # filter使用正则表达式去筛选节点
-    filter: "tw|TW|台湾|台|Taiwan"
+    filter: "🇹🇼|tw|TW|台湾|台|Taiwan"
 
   - name: 🇲🇴 澳门节点
     type: url-test
     use:
       - Sub1
-      # - Sub2
+      - Sub2
       # - Sub3
     # filter使用正则表达式去筛选节点
-    filter: "MO|澳门|澳門|Macao"
+    filter: "🇲🇴|MO|澳门|澳門|Macao"
 
   - name: 🇸🇬 狮城节点
     type: url-test
@@ -346,7 +329,7 @@ proxy-groups:
       - Sub1
       # - Sub2
       # - Sub3
-    filter: "SG|Singapore|狮城|新加坡"
+    filter: "🇸🇬|SG|Singapore|狮城|新加坡"
 
   - name: 🇯🇵 日本节点
     type: url-test
@@ -354,7 +337,7 @@ proxy-groups:
       - Sub1
       # - Sub2
       # - Sub3
-    filter: "JP|japan|日本"
+    filter: "🇯🇵|JP|japan|日本"
 
   - name: 🇺🇸 美国节点
     type: url-test
@@ -362,7 +345,7 @@ proxy-groups:
       - Sub1
       # - Sub2
       # - Sub3
-    filter: "US|United|美|美国"
+    filter: "🇺🇸|US|United|美|美国"
   
   - name: 🇺🇳 其它地区
     type: select
@@ -371,7 +354,7 @@ proxy-groups:
       # - Sub2
       # - Sub3
     # 筛选除日美新港外的节点，可自行按格式添加
-    filter: "^(?!.*(?:Hong|HK|TW|Taiwan|USA|Japan|Singapore|USA|香港|日本|狮城|新加坡|台湾|美国)).*"
+    filter: "^(?!.*(?:Hong|HK|TW|Taiwan|USA|Japan|Singapore|USA|🇭🇰|🇯🇵|🇸🇬|🇹🇼|🇺🇸|香港|日本|狮城|新加坡|台湾|美国)).*"
 
 
 # proxy-provider 可参考meta内核文档 https://clash-meta.wiki/config/proxy-providers
@@ -380,12 +363,12 @@ proxy-providers:
   Sub1:
     <<: *http
     path: ./proxies/Sub1.yaml
-    url: https://tagcdnsub.work/api/v1/client/subscribe?token=87e772c0170532d135e6bdad677fac4d
+    url: https://6993300.eu.org/api/v1/client/subscribe?token=26671733edc29949112b93a5a7717592
 
   # Sub2:
   #   <<: *http
   #   path: ./proxies/Sub2.yaml
-  #   url: 订阅链接
+  #   url: https://v2.esycloud.link/api/v1/client/subscribe?token=aa78779e96ed2f0b9815ed0f44b99a0c
   #
   # 本地节点，路径可填写绝对路径或者相对路径(为clash工作目录下)
   # Sub3:

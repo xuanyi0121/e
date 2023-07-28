@@ -397,7 +397,7 @@ proxy-providers:
     path: ./proxies/Sub1.yaml
     url: https://6993300.eu.org/api/v1/client/subscribe?token=26671733edc29949112b93a5a7717592
 
-  Sub1:
+  Sub2:
     <<: *http
     path: ./proxies/Sub1.yaml
     url: http://esycloud.6993300.dev/api/v1/client/subscribe?token=aa78779e96ed2f0b9815ed0f44b99a0c

@@ -99,7 +99,7 @@ def StrOfSize(size):
     return ('{}.{:>03d} {}'.format(integer, remainder, units[level]))
 
 
-@listener(is_plugin=True, outgoing=True, command=alias_command("subinfo"),
+@listener(is_plugin=True, outgoing=True, command=alias_command("cha"),
           description='识别订阅链接并获取信息\n使用方法：使用该命令发送或回复一段带有一条或多条订阅链接的文本',
           parameters='<url>')
 async def subinfo(_, msg: Message):
